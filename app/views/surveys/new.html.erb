@@ -1,0 +1,30 @@
+<h1>New Survey</h1>
+<%= form_with model: @survey  do |f| %>
+  <%#= render 'shared/error_messages', object: f.object %>
+
+<%= f.radio_button(:check_age, "成人") %>
+<%= f.label(:check_age, "成人" ,value: "成人")  %>
+
+<%= f.radio_button(:check_age, "未成年") %>
+<%= f.label(:check_age, "未成年" ,value: "成人") %>
+
+
+  <div class="mb-3">
+    <%= f.label :title %>
+    <%= f.text_field :title, class: 'form-control' %>
+  </div>
+  <div class="mb-3">
+    <%= f.label :content %>
+    <%= f.text_area :content, class: 'form-control', rows: 10 %>
+  </div>
+  <div class="mb-3">
+    <%= f.label :held_at %>
+    <%= f.datetime_field :held_at, class: 'form-control' %>
+  </div>
+
+  <div class="mb-3">
+    <%= f.label :prefecture_id %>
+    <%= f.collection_select :prefecture_id, Prefecture.all, :id, :name, {}, class: 'form-select' %>
+  </div>
+  <%= f.submit '登録', class: 'btn btn-primary' %>
+<% end %>

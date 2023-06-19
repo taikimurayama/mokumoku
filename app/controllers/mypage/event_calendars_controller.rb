@@ -5,5 +5,6 @@ class Mypage::EventCalendarsController < Mypage::BaseController
     @bookmark_events = current_user.bookmark_events
     @future_events = current_user.attend_events.future
     @past_events = current_user.attend_events.past
+    @event_events = current_user.attend_events.event
   end
 end
