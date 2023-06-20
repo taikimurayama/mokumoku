@@ -37,4 +37,10 @@
       <%= render partial: 'events/event', collection: @past_events %>
     </div>
   </div>
+
+  <div class="tab-pane fade" id="path" role="tabpanel" aria-labelledby="path-tab">
+    <div class="row row-cols-1 row-cols-md-3 g-4 mb-3">
+      <%= render partial: 'events/event', collection: @event_events %>
+    </div>
+  </div>
 </div>

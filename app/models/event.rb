@@ -10,9 +10,12 @@ class Event < ApplicationRecord
   has_many :attendees, through: :attendances, class_name: 'User', source: :user
   has_many :bookmarks, dependent: :destroy
   has_one_attached :thumbnail
+  has_one_attached :image
 
   scope :future, -> { where('held_at > ?', Time.current) }
   scope :past, -> { where('held_at <= ?', Time.current) }
+
+ 
 
   with_options presence: true do
     validates :title
@@ -27,4 +30,9 @@ class Event < ApplicationRecord
   def future?
     !past?
   end
+
+  
+
+
+  
 end
